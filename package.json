@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "server": "json-server --watch db.json --port 5000"
+    "server": "json-server --watch db.json --port 5000",
+    "start:proxy": "ng serve --proxy-config proxy.conf.json",
+    "start:proxy:server": "concurrently - kill-others \"npm run server\" \" npm run start:proxy\""
   },
   "private": true,
   "dependencies": {
@@ -30,6 +32,7 @@
     "@angular/compiler-cli": "~12.0.1",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "concurrently": "^6.1.0",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
