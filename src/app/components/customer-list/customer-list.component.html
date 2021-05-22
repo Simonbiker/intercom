@@ -1,2 +1,5 @@
-<p>customer-list works!</p>
-<div>{{ customer }}</div>
+<h3>List of customers and Id's</h3>
+<app-customer-item
+  *ngFor="let customer of customer"
+  [customer]="customer"
+></app-customer-item>
