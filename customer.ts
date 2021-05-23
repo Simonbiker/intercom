@@ -1,6 +1,6 @@
 export interface Customer {
-    latitude: number;
-    longitude: number;
+    latitude: string;
+    longitude: string;
     user_id: number;
     name: string;
   }
