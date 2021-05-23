@@ -11,7 +11,7 @@ export class CustomerListService {
 
   constructor(private http: HttpClient) { }
 
-  getCustomer(): Observable<Customer[]> {
+  public getCustomer(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.apiUrl);
   }
   

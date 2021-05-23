@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CustomerListComponent } from './components/customer-list/customer-list.component';
+import { CustomerItemComponent } from './components/customer-item/customer-item.component';
 
 const appRoutes: Routes = [
   {path: '', component: CustomerListComponent}
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    CustomerItemComponent
   ],
   imports: [
     BrowserModule,
