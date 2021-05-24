@@ -15,8 +15,10 @@ export class CustomerListComponent implements OnInit {
   intercomLong: number = -6.257664 * Math.PI/180; // changing to radians
   customerLatitude: any;
   customerLongitude: any;
-  customerUserId: number = 0; 
+  customerUserId: number = 0;
+  customerName: string = ''; 
   insideHunderedK: number[] = [];
+  listOfCustomers: any[] = [];
   debug: boolean = false; // change to true so see console logs.
 
   constructor(private customerList: CustomerListService) { }
@@ -32,12 +34,13 @@ export class CustomerListComponent implements OnInit {
         let longitude = customer.longitude;
         // setting the long to a number
         this.setLongitude(longitude);
-       // Making the lat & long radians 
-        this.checkingDistenceFromCustomersToIntercome(this.setLatitude(latitude) * Math.PI/180, this.setLongitude(longitude) * Math.PI/180)
         // Getting list of id's
         this.customerUserId = customer.user_id;
-        // console.log(this.customerUserId);
-
+        // Getting the names 
+        this.customerName = customer.name
+        // Making the lat & long radians 
+        this.checkingDistenceFromCustomersToIntercome(this.setLatitude(latitude) * Math.PI/180, this.setLongitude(longitude) * Math.PI/180, 
+        this.customerName,this.customerUserId)
       })
     });
     this.getListOfCustomers();
@@ -56,10 +59,17 @@ export class CustomerListComponent implements OnInit {
   }
 
   // create a method that will have intercom position and the second position will be the customers positions
-  checkingDistenceFromCustomersToIntercome(latCustomerRadin:number, longCustomerRadian: number){
+  checkingDistenceFromCustomersToIntercome(latCustomerRadin:number, longCustomerRadian: number, name: string, id: number){
     if(this.debug){
       console.log('latCustomerRadin',typeof latCustomerRadin, latCustomerRadin);
       console.log('longCustomerRadian',typeof longCustomerRadian, longCustomerRadian);
+    }
+
+    let checkPerson = {
+      radian: 0,
+      id: 0,
+      name: '',
+      withinK: false
     }
 
     const r = 6371e3 / 1000; // changing meters to 100km
@@ -74,20 +84,31 @@ export class CustomerListComponent implements OnInit {
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
     let d = r * c;
-    console.log('After calc',d);
+
+    if(this.debug){console.log('After calc',d)}
 
     // Checking who is within the 100k limit
     if (d <= 100){
-      d = this.insideHunderedK.push(d);
-      // console.log('inside 100k:', this.insideHunderedK);
-    } 
+      checkPerson = {
+        id: id,
+        radian: d,
+        name: name,
+        withinK: true
+      }
+    }
+
+    // sorting the list of users. 
+    if(checkPerson.withinK == true) {
+      this.listOfCustomers.sort((a,b)=> (a.id > b.id) ? 1:-1);
+      this.listOfCustomers.push(checkPerson);
+    }
 
   }
 
   getListOfCustomers(){
     //check if there is no duplications 
     this.insideHunderedK;
-    console.log('inside 100k:', this.insideHunderedK);
+    if(this.debug){console.log('inside 100k:', this.listOfCustomers)}
   }
 
 }

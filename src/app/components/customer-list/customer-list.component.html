@@ -3,3 +3,11 @@
   *ngFor="let customer of customer"
   [customer]="customer"
 ></app-customer-item>
+<div class="invited-customer">
+  <ul *ngFor="let listOfCustomers of listOfCustomers">
+    <li>
+      {{ listOfCustomers.name }} <span>{{ listOfCustomers.id }}</span>
+    </li>
+  </ul>
+</div>
+<button>Show invited customers</button>
