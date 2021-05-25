@@ -24,21 +24,12 @@ Second by checking console logs after the calulation was done and with in if sta
 Third creating a list of customers that where within the radius and checking that the radian number was less than zero. The console log that best reperents this is `inside 100k:` on line 112 inside `CustomerListComponent`
 To see an image of the console check list-within-100k.png in assets folder and test-images.
 
-## Code scaffolding
+Thank for spending the time reviewing this.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Running Angular & Node.js
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+You can download Nodejs `https://nodejs.org/en/`
+If you don't have angular on your file you might need to run `npm install -g @angular/cli`
 
 ## Further help
 
