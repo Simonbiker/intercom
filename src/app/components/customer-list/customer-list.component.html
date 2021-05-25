@@ -1,13 +1,29 @@
-<h3>List of customers and Id's</h3>
-<app-customer-item
-  *ngFor="let customer of customer"
-  [customer]="customer"
-></app-customer-item>
-<div class="invited-customer">
-  <ul *ngFor="let listOfCustomers of listOfCustomers">
-    <li>
-      {{ listOfCustomers.name }} <span>{{ listOfCustomers.id }}</span>
-    </li>
-  </ul>
+<div class="container">
+  <div class="header">
+    <h3>List of all customers and there Id's</h3>
+    <button (click)="onClickInvite()">Invite Customers</button>
+  </div>
+  <div class="spacing"></div>
+  <div class="col-centre" *ngIf="invite ? false : true">
+    <app-customer-item
+      *ngFor="let customer of customer"
+      [customer]="customer"
+    ></app-customer-item>
+  </div>
+  <div class="col-centre" *ngIf="invite ? true : false">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>ID</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let listOfCustomers of listOfCustomers">
+        <tr>
+          <td>{{ listOfCustomers.name }}</td>
+          <td>{{ listOfCustomers.id }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-<button>Show invited customers</button>

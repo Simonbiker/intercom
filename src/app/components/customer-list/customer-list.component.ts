@@ -19,6 +19,7 @@ export class CustomerListComponent implements OnInit {
   customerName: string = ''; 
   insideHunderedK: number[] = [];
   listOfCustomers: any[] = [];
+  invite: boolean = false;
   debug: boolean = false; // change to true so see console logs.
 
   constructor(private customerList: CustomerListService) { }
@@ -109,6 +110,10 @@ export class CustomerListComponent implements OnInit {
     //check if there is no duplications 
     this.insideHunderedK;
     if(this.debug){console.log('inside 100k:', this.listOfCustomers)}
+  }
+
+  onClickInvite(){
+    this.invite = true;
   }
 
 }
