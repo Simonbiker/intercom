@@ -1,16 +1,20 @@
+<div class="header">
+  <h2>List of all customers and there Id's</h2>
+  <button class="btn" (click)="onClickInvite()">Invite Customers</button>
+</div>
+
+<div class="spacing"></div>
+
 <div class="container">
-  <div class="header">
-    <h3>List of all customers and there Id's</h3>
-    <button (click)="onClickInvite()">Invite Customers</button>
-  </div>
-  <div class="spacing"></div>
-  <div class="col-centre" *ngIf="invite ? false : true">
+  <div class="col-customer-one" *ngIf="invite ? false : true">
+    <h3>List of all customers and ids</h3>
     <app-customer-item
       *ngFor="let customer of customer"
       [customer]="customer"
     ></app-customer-item>
   </div>
-  <div class="col-centre" *ngIf="invite ? true : false">
+  <div class="col-customer-one" *ngIf="invite ? true : false">
+    <h3>List of customers within hundered km</h3>
     <table>
       <thead>
         <tr>

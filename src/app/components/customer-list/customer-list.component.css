@@ -1,6 +1,6 @@
 .container {
   display: grid;
-  /* justify-items: center; */
+  justify-items: center;
   /* background-color: #eefbfb; */
 }
 .header {
@@ -8,10 +8,9 @@
   width: auto;
 }
 
-.col-centre {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+.btn {
+  background-color: #008cba;
+  font-size: 16px;
 }
 
 .spacing {
@@ -21,13 +20,8 @@
 .col-customer-one {
   display: flex;
   flex-direction: column;
+  /* text-align: center; */
   grid-column: 1;
-}
-
-.col-customer-two {
-  display: flex;
-  flex-direction: column;
-  grid-column: 2;
 }
 
 td,

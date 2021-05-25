@@ -20,7 +20,7 @@ export class CustomerListComponent implements OnInit {
   insideHunderedK: number[] = [];
   listOfCustomers: any[] = [];
   invite: boolean = false;
-  debug: boolean = false; // change to true so see console logs.
+  debug: boolean = true; // change to true so see console logs.
 
   constructor(private customerList: CustomerListService) { }
 
@@ -40,7 +40,7 @@ export class CustomerListComponent implements OnInit {
         // Getting the names 
         this.customerName = customer.name
         // Making the lat & long radians 
-        this.checkingDistenceFromCustomersToIntercome(this.setLatitude(latitude) * Math.PI/180, this.setLongitude(longitude) * Math.PI/180, 
+        this.checkingDistenceFromCustomersToIntercom(this.setLatitude(latitude) * Math.PI/180, this.setLongitude(longitude) * Math.PI/180, 
         this.customerName,this.customerUserId)
       })
     });
@@ -60,7 +60,7 @@ export class CustomerListComponent implements OnInit {
   }
 
   // create a method that will have intercom position and the second position will be the customers positions
-  checkingDistenceFromCustomersToIntercome(latCustomerRadin:number, longCustomerRadian: number, name: string, id: number){
+  checkingDistenceFromCustomersToIntercom(latCustomerRadin:number, longCustomerRadian: number, name: string, id: number){
     if(this.debug){
       console.log('latCustomerRadin',typeof latCustomerRadin, latCustomerRadin);
       console.log('longCustomerRadian',typeof longCustomerRadian, longCustomerRadian);
@@ -113,7 +113,7 @@ export class CustomerListComponent implements OnInit {
   }
 
   onClickInvite(){
-    this.invite = true;
+    this.invite = !this.invite;
   }
 
 }
