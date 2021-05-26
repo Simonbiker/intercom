@@ -23,7 +23,7 @@ First by checking all the customer latitudes and longitude manually in google ma
 
 Second by checking console logs after the calculation was done and within if statement.<br/>
 
-Third creating a list of customers that where within the radius and checking that the radian number was less than zero. The console log that best represents this is `inside 100k:` on line 112 inside `CustomerListComponent`
+Third creating a list of customers that where within the radius and checking that the radian number was less than hundred. The console log that best represents this is `inside 100k:` on line 112 inside `CustomerListComponent`
 To see an image of the console check list-within-100k.png in assets folder and test-images.
 
 Thank you for spending the time reviewing this.
